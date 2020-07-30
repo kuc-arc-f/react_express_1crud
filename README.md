@@ -31,7 +31,7 @@ npm start
 ***
 ### Blog :
 
-
+https://note.com/knaka0209/n/nd413b2c2d0a1
 
 ***
 
