@@ -1,0 +1,26 @@
+<h1>test4</h1>
+<hr />
+<div id="app"></div>
+
+<!-- -->
+<script type="text/babel" src="/js/component/TaskTest.js" ></script>
+<script type="text/babel">
+class TaskTest3 extends React.Component {
+    render() {
+        return (
+            <div className="test3">
+                <HeadTest />
+                <hr />
+                <h1>AABB</h1>
+                <p>Hello World, 123ccc</p>
+                name: {this.props.name}
+                <hr />
+            </div>
+        );
+    }
+}
+ReactDOM.render(
+    <HelloMessage name="Fuga" />
+    , document.getElementById('app')
+);
+</script>
