@@ -1,0 +1,45 @@
+
+<h1>Show</h1>
+<hr />
+<div id="app"></div>
+
+<!-- -->
+<script src="/js/libs/LibTask.js" ></script>
+<script type="text/babel">
+
+class Show extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {data: ''}
+        this.id = parseInt(props.id)
+        console.log(this.id)
+        this.db = null
+    }
+    componentDidMount(){
+        var config = LibTask.get_const()
+        this.db = new Dexie( config.DB_NAME );
+        this.db.version(config.DB_VERSION).stores( config.DB_STORE );
+        this.get_item( this.id )        
+    }
+    async get_item(id){
+        const item = await this.db.tasks.get(id);
+        var row ={
+            title: item.title, 
+            content: item.content
+        }
+        this.setState({ 
+            data: row,
+        });        
+        console.log(item);                          
+    }    
+    render(){
+        return (
+            <div>
+                <h1>title : {this.state.data.title}</h1>
+                <div>{this.state.data.content}</div>
+            </div>
+        )
+    }
+}
+ReactDOM.render(<Show id="<%= params_id %>"  />, document.getElementById('app'));
+</script>

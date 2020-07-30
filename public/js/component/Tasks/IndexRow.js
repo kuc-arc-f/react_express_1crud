@@ -8,10 +8,12 @@ class IndexRow extends React.Component {
             <td>
                 {this.props.obj.id}
             </td>
-            <td>{this.props.obj.title}
+            <td>
+                <a href={"/tasks/show/"+ this.props.obj.id}>{this.props.obj.title}
+                </a>
+                
             </td>
             <td>
-                <a href={"/tasks/edit/"+ this.props.obj.id}>[ edit ]</a>
             </td>
         </tr>
         )
